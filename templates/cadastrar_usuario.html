@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Usuário</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='scripts.js') }}" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Cadastrar Usuário</h1>
+    </header>
+    <div class="container">
+        <form action="/cadastrar_usuario" method="post">
+            {% if texto %}
+                <div class="error-message">{{ texto }}</div>
+            {% endif %}
+            <input type="text" name="login" placeholder="Login" required>
+            <input type="password" name="senha" placeholder="Senha" required>
+            <select name="tipo" required>
+                <option value="super">Super</option>
+                <option value="normal">Normal</option>
+            </select>
+            <input type="submit" value="Cadastrar">
+        </form>
+    </div>
+</body>
+</html>

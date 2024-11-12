@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Produto</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='scripts.js') }}" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Cadastrar Produto</h1>
+    </header>
+    <div class="container">
+        <form action="/cadastrar_produto" method="POST">
+            {% if texto %}
+                <div class="error-message">{{ texto }}</div>
+            {% endif %}
+            <input type="text" name="nome" placeholder="Nome do Produto" required>
+            <input type="number" name="qtde" placeholder="Quantidade" required>
+            <input type="number" name="preco" placeholder="Preço" step="0.01" required>
+            <input type="submit" value="Cadastrar">
+        </form>
+    </div>
+</body>
+</html>
