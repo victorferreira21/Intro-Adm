@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Bem-vindo ao Dashboard, {{ session['login_user'] }}!</h1>
+    </header>
+
+    <div class="container">
+        <h2>Menu de Navegação</h2>
+        <ul>
+            <li><a href="{{ url_for('cadastrar_produto') }}">Cadastrar Produto</a></li>
+            <li><a href="{{ url_for('lista_produtos') }}">Lista de Produtos</a></li>
+            <li><a href="{{ url_for('cadastrar_venda') }}">Cadastro de Vendas</a></li>
+            <li><a href="{{ url_for('grafico_vendas') }}">Grafico de Vendas</a></li>
+            <li><a href="{{ url_for('logout') }}">Sair</a></li>
+        </ul>
+    </div>
+</body>
+</html>

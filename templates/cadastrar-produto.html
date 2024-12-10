@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Produto</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <h1>Cadastrar Produto</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2>Preencha os dados do produto</h2>
+
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert">
+                    <ul>
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        {% endwith %}
+
+
+        <form method="POST">
+            <div class="form-group">
+                <label for="Produto">Nome do Produto:</label>
+                <input type="text" id="Produto" name="Produto" required>
+            </div>
+
+            <div class="form-group">
+                <label for="qtde">Quantidade:</label>
+                <input type="number" id="qtde" name="qtde" required>
+            </div>
+
+            <div class="form-group">
+                <label for="preco">Preço:</label>
+                <input type="number" id="preco" name="preco" step="0.01" required>
+            </div>
+
+            <button type="submit" class="btn-submit">Cadastrar Produto</button>
+        </form>
+
+        <br>
+
+
+        <div class="btn-container">
+            <a href="{{ url_for('dashboard') }}" class="btn-back">Voltar ao Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>
